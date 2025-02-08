@@ -14,7 +14,7 @@ public class P02_ProceedtocheckoutPage extends PageBase {
     }
 
     // TODO: define locators using By
-    private final By Cheackout_Button = By.xpath("//a[normalize-space()='Proceed to checkout']");
+    private final By Cheackout_Button = By.xpath("//a[text()='Proceed to checkout']");
 
 
     // TODO: public action methods

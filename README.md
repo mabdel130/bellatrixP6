@@ -1,6 +1,6 @@
-# AutomationExercise Application
+# Bellatrix demo Applications
 
-![AutomationExercise Logo](https://automationexercise.com/static/images/home/logo.png)
+![AutomationExercise Logo](https://demos.bellatrix.solutions/wp-content/uploads/2018/04/cropped-bellatrix-logo.png)
 
 ## Table of Contents
 
@@ -14,39 +14,45 @@
 
 ## Introduction
 
-**AutomationExercise is a web-based application designed to provide a comprehensive platform 
-for both manual and automated testing. 
-It offers a robust set of features that mimic real-world scenarios, 
-making it an ideal practice ground for QA professionals to validate various test cases.
+**Bellatrix Demo Checkout - Test Automation Practice Platform
+A modern e-commerce checkout demonstration platform designed for practicing test automation scenarios with real-world web elements and workflows.
 ## Features
 
-User Roles and Authentication:
+Checkout Process Components:
 
-Supports multiple user roles such as Admin, Customer, and Manager, providing access control and security testing scenarios.
+Personal information form validation
 
-Account Management:
+Dynamic country/state select dropdowns (Select2 implementation)
 
-Create, update, and manage customer accounts, including savings, current, and fixed deposit accounts.
+Multiple payment method options (Credit Card, PayPal, Direct Bank Transfer)
 
-Transaction Management:
+Order summary with dynamic price calculations
 
-Perform and manage transactions such as deposits, withdrawals, and fund transfers.
+Coupon code application system
 
-Product and Cart Management:
+Responsive design across device breakpoints
 
-Browse, add, update, and remove products from the shopping cart.
+Form error validation messages
 
-Order Processing:
+Session persistence between steps
 
-Place and manage orders, including order confirmation and payment processing.
+Loading state animations
 
-Customizable System:
+Technical Testing Opportunities:
 
-Modify system configurations like user roles, permissions, and workflows for testing various scenarios.
+Cross-browser compatibility testing
 
-Responsive Design:
+Mobile device emulation testing
 
-Fully responsive across desktops, tablets, and mobile devices.
+Form input boundary testing
+
+AJAX form submissions
+
+Third-party payment gateway simulations
+
+Error state simulations
+
+Performance benchmarking
 
 ## Installation
 
@@ -56,10 +62,10 @@ To set up and test the GTPL_Bank application locally, follow these steps:
 1. Clone the repository:
 
    
-git clone https://github.com/mabdel130/Automation-exerciseP5
+git clone https://github.com/mabdel130/bellatrixP6.git
 
 
-2. Navigate to the project directory: cdAutomationExercise
+2. Navigate to the project directory: https://demos.bellatrix.solutions/checkout/
 3. Install dependencies: npm install
 
 4. Configure the application:
@@ -108,15 +114,27 @@ Order Workflow:
 Automate an order placement and approval process.
 
 ## Contributing
-WWe welcome contributions to improve the AutomationExercise application and its testing scripts! Follow these steps to contribute:
 
-Fork the repository.
+Contribution Guidelines
+We welcome improvements to:
 
-Create a new branch for your feature or bug fix.
+Page Object Model implementations
 
-Implement your changes.
+Additional test scenarios
 
-Submit a pull request for review.
+Visual testing integrations
+
+Performance test cases
+
+Accessibility validations
+
+Fork the repository
+
+Create feature branch
+
+Add tests for new functionality
+
+Submit pull request
 
 ## License
 
@@ -126,4 +144,11 @@ The AutomationExercise application is licensed under the MIT License.
 
 For more extensive test cases and automation exercises, refer to the test cases available at 
 Automation Exercise.
+
+## Additional Resources
+Live Demo Site
+
+Test Case Repository
+
+Selenium Documentation
 
