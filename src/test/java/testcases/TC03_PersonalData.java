@@ -24,7 +24,7 @@ public class TC03_PersonalData extends TestBase {
     static String note = generateRandomMessage();
     public static String expectedMsgformyorder="Order received";
 
-    @Test(priority = 1, description = "Add My personalData", retryAnalyzer = MyRetry.class)
+    @Test(priority = 1, description = "Add My personalData")
     public void validate_on_My_PersonalData_P() {
         new P03_PersonalDataPage(getDriver())
                 .enterFirstName(firstName)
@@ -33,7 +33,7 @@ public class TC03_PersonalData extends TestBase {
                 .enter_Country_Name(countryName)
                 .enter_street_Address(streetAddress)
                 .enter_Town_CityName(TownorCityName)
-                .enter_State_CountryName(StateName)
+                . enter_State_County(StateName)
                 .enter_Postcode_ZIP_Name(ZIPName)
                 .enter_PhoneNumber(phoneNumber)
                 .enter_Email_address(email)

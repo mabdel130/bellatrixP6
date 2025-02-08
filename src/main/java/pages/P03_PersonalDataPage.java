@@ -1,8 +1,13 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 import static drivers.DriverHolder.getDriver;
 
@@ -18,14 +23,14 @@ public class P03_PersonalDataPage extends PageBase {
 
     private final By Company_Text = By.xpath("//input[@id='billing_company']");
 
-    private final By Country_Region_Drg_andDrop = By.xpath("//span[@id='select2-billing_country-container']");
+    //private final By Country_Region_Drg_andDrop = By.xpath("//span[@id='select2-billing_country-container']");
 
 
     private final By Street_address_Text = By.xpath("//input[@id='billing_address_1']");
 
-    private final By Town_City_Text = By.xpath("//input[@id='billing_city']");
+    private final By Town_City_Text = By.id("billing_city");
 
-    private final By State_County_Drg_andDrop = By.xpath("//span[@id='select2-billing_state-container']");
+   // private final By State_County_Drg_andDrop = By.xpath("//span[@id='select2-billing_state-container']");
 
     private final By Postcode_ZIP_Text = By.xpath("//input[@id='billing_postcode']");
 
@@ -38,6 +43,9 @@ public class P03_PersonalDataPage extends PageBase {
     private final By Ordernotes_Text = By.xpath("//textarea[@id='order_comments']");
     private final By PlaceOrder_Button = By.xpath("//button[@id='place_order']");
     private final  By assertion_Text=By.xpath("//h1[normalize-space()='Order received']");
+    private final By Country_Region_Drg_andDrop = By.xpath("//span[@id='select2-billing_country-container']");
+    private final By Country_Search_Input = By.cssSelector(".select2-search__field");
+    private final By State_County_Drg_andDrop = By.xpath("//span[@id='select2-billing_state-container']");
 
     public static String ActualMsgformyorder;
 
@@ -61,16 +69,16 @@ public class P03_PersonalDataPage extends PageBase {
 
     }
 
-    public P03_PersonalDataPage enter_Country_Name(String countryName) {
-        shortWait(getDriver()).until(ExpectedConditions.visibilityOfElementLocated(Country_Region_Drg_andDrop));
-        driver.findElement(this.Country_Region_Drg_andDrop).sendKeys(countryName);
-        driver.findElement(this.Country_Region_Drg_andDrop).click();
-        return new P03_PersonalDataPage(getDriver());
-
-    }
+//    public P03_PersonalDataPage enter_Country_Name(String countryName) {
+//        shortWait(getDriver()).until(ExpectedConditions.visibilityOfElementLocated(Country_Region_Drg_andDrop));
+//        driver.findElement(this.Country_Region_Drg_andDrop).sendKeys(countryName);
+//        driver.findElement(this.Country_Region_Drg_andDrop).click();
+//        return new P03_PersonalDataPage(getDriver());
+//
+//    }
 
     public P03_PersonalDataPage enter_street_Address(String streetAddress) {
-        shortWait(getDriver()).until(ExpectedConditions.visibilityOfElementLocated(Street_address_Text));
+       longWait(getDriver()).until(ExpectedConditions.visibilityOfElementLocated(Street_address_Text));
         driver.findElement(this.Street_address_Text).sendKeys(streetAddress);
         return new P03_PersonalDataPage(getDriver());
 
@@ -84,13 +92,13 @@ public class P03_PersonalDataPage extends PageBase {
     }
 
 
-    public P03_PersonalDataPage enter_State_CountryName(String StateName) {
-        shortWait(getDriver()).until(ExpectedConditions.visibilityOfElementLocated(State_County_Drg_andDrop));
-        driver.findElement(this.State_County_Drg_andDrop).sendKeys(StateName);
-        driver.findElement(this.State_County_Drg_andDrop).click();
-        return new P03_PersonalDataPage(getDriver());
-
-    }
+//    public P03_PersonalDataPage enter_State_CountryName(String StateName) {
+//        shortWait(getDriver()).until(ExpectedConditions.visibilityOfElementLocated(State_County_Drg_andDrop));
+//        driver.findElement(this.State_County_Drg_andDrop).sendKeys(StateName);
+//        driver.findElement(this.State_County_Drg_andDrop).click();
+//        return new P03_PersonalDataPage(getDriver());
+//
+//    }
 
     public P03_PersonalDataPage enter_Postcode_ZIP_Name(String ZIPName) {
         shortWait(getDriver()).until(ExpectedConditions.visibilityOfElementLocated(Postcode_ZIP_Text));
@@ -140,6 +148,36 @@ public class P03_PersonalDataPage extends PageBase {
         ActualMsgformyorder=shortWait(getDriver()).until(ExpectedConditions.visibilityOfElementLocated(assertion_Text)).getText();
         return new P03_PersonalDataPage(getDriver());
 
+    }
+    public P03_PersonalDataPage enter_Country_Name(String countryName) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        // 1. Click the country dropdown to open it
+        WebElement countryDropdown = wait.until(ExpectedConditions.elementToBeClickable(Country_Region_Drg_andDrop));
+        countryDropdown.click();
+
+        // 2. Find and interact with the search input field
+        WebElement searchInput = wait.until(ExpectedConditions.visibilityOfElementLocated(Country_Search_Input));
+        searchInput.sendKeys(countryName);
+
+        // 3. Select the matching option
+        searchInput.sendKeys(Keys.ENTER);
+
+        return this;
+    }
+
+    // Similar approach for state/county selection
+    public P03_PersonalDataPage enter_State_County(String stateName) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        WebElement stateDropdown = wait.until(ExpectedConditions.elementToBeClickable(State_County_Drg_andDrop));
+        stateDropdown.click();
+
+        WebElement searchInput = wait.until(ExpectedConditions.visibilityOfElementLocated(Country_Search_Input));
+        searchInput.sendKeys(stateName);
+        searchInput.sendKeys(Keys.ENTER);
+
+        return this;
     }
 
 }

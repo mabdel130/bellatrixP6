@@ -65,11 +65,11 @@ public class TestBase {
         //openBrowserNetworkTab();
     }
 
-    @AfterTest
-    public void TearDown() {
-
-        quitBrowser(getDriver());
-    }
+//    @AfterTest
+//    public void TearDown() {
+//
+//        quitBrowser(getDriver());
+//    }
 
     @AfterSuite
     public void afterSuite() throws Exception {

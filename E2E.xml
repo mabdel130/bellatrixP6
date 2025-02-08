@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="E2E" preserve-order="true">
-    <parameter name="browsername" value="firefox"/>
+    <parameter name="browsername" value="edge"/>
 
     <test name="E2E scenario">
         <classes>
