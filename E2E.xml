@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="E2E" preserve-order="true">
+    <parameter name="browsername" value="firefox"/>
+
+    <test name="E2E scenario">
+        <classes>
+            <class name="testcases.TC01_HomePage">
+                <methods>
+                    <include name="validateAddtocartandViewMycart_P"/>
+                </methods>
+            </class>
+            <class name="testcases.TC02_Proceedtocheckout">
+                <methods>
+                    <include name="validateRedirectToProceedtocheckoutPage_P"/>
+                </methods>
+            </class>
+            <class name="testcases.TC03_PersonalData">
+            <methods>
+            <include name="validate_on_My_PersonalData_P"/>
+            </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

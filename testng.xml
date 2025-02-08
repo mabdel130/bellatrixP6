@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="AutomationExercise" preserve-order="true">
+    <listeners>
+        <listener class-name="listeners.Listener"/>
+    </listeners>
+    <parameter name="browsername" value=""/>
+
+    <suite-files>
+        <suite-file path="E2E.xml"/>
+    </suite-files>
+</suite>
